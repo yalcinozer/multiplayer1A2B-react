@@ -1,26 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Switch, Route, MemoryRouter} from "react-router-dom";
+import socket from "./Assets/MySocket";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+//Screens
+import HowToPlay from "./Routes/HowToPlay";
+import PlayerList from "./Routes/PlayerList";
+import Home from "./Routes/Home";
+import EnterYourNumber from "./Routes/EnterYourNumber";
+import GameScreen from "./Routes/GameScreen";
+import ModalGameEnd from "./Routes/ModalGameEnd";
+
+export default function App() {
+    return (
+        <MemoryRouter>
+            <Switch>
+                <Route path="/playerlist">
+                    <PlayerList socket={socket}/>
+                </Route>
+                <Route path="/enteryournumber">
+                    <EnterYourNumber socket={socket}/>
+                </Route>
+                <Route path="/gamescreen">
+                    <GameScreen socket={socket}/>
+                </Route>
+                <Route path="/modalgameend">
+                    <ModalGameEnd socket={socket}/>
+                </Route>
+                <Route path="/howtoplay">
+                    <HowToPlay/>
+                </Route>
+                <Route exact={true} path="/">
+                    <Home socket={socket}/>
+                </Route>
+            </Switch>
+        </MemoryRouter>
+    );
 }
 
-export default App;
+

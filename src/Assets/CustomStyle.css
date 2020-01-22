@@ -1,0 +1,130 @@
+@font-face {
+    font-family: JandaManatee;
+    src: url(JandaManateeSolid.ttf);
+}
+
+* {
+    /*border: solid 1px orange;*/
+    font-family: JandaManatee !important;
+}
+
+/*html {*/
+/*    font-size: 18px;*/
+/*    user-select: none;*/
+/*}*/
+#root {
+    display: flex;
+    width: 360px;
+    max-width: 360px;
+    height: 560px;
+    max-height: 560px;
+    margin: auto;
+    background-color: #fff;
+    text-align: left;
+    cursor: pointer;
+}
+
+#root div {
+    display: flex;
+}
+
+#root > div {
+    box-shadow: #ccccdd 0px 2px 30px;
+    border-radius: 3px;
+    padding: 14px 20px;
+    overflow: hidden;
+}
+
+.View {
+    flex: 1;
+    font-family: JandaManatee;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center
+}
+
+.GiantLetter {
+    font-family: JandaManatee;
+    font-size: 5rem;
+}
+
+.TextInput {
+    font-family: JandaManatee;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.PlayerListRow {
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 8px;
+    border-style: solid;
+    border-width: 1px
+}
+
+.Keypad {
+    flex-direction: column;
+    justify-content: center;
+}
+
+.Numkey {
+    display: flex;
+    min-width: 26%;
+    padding: 3px;
+    justify-content: center;
+    border: #ccccdd 1px solid;
+    margin-left: 3px;
+    margin-bottom: 3px;
+    border-radius: 3px;
+    align-items: center;
+}
+
+.NumkeyText {
+    font-family: 'JandaManateeSolid';
+    font-size: 1.2rem
+}
+
+.FourDigit {
+    display: inline-block;
+    font-family: JandaManatee;
+    font-size: 40px;
+    min-width: 32px;
+    min-height: 60px;
+    padding-horizontal: 7px;
+    text-align: center;
+    vertical-align: middle
+}
+
+.ChatMessage {
+    font-family: 'JandaManateeSolid';
+    font-size: 1rem;
+    padding: 2px;
+    margin-bottom: 1px;
+    border-radius: 2px;
+    border-color: #dedede;
+    border-width: 1px;
+}
+
+.WhoseTurn {
+    position: absolute;
+    padding: 4px;
+    border-radius: 5px;
+    left: 20%;
+    opacity: .6;
+    transform: scale(.7);
+    transition: .45s all;
+}
+
+.SecretNumberStyle {
+    background-color: #222;
+    padding: 7px;
+    color: #fff;
+    font-size: 22px;
+    margin-left: 10px;
+}
+
+.Filler {
+    border: #dadada solid 1px;
+    vertical-align: middle;
+    height: 10px;
+}
