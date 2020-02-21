@@ -1,6 +1,7 @@
 import React from "react";
-import {withRouter, Redirect} from "react-router-dom";
-import {Text, PlayerListRow, View, TopBar} from "../Assets/Components";
+import {withRouter} from "react-router-dom";
+
+import {Text, PlayerListRow, View, TopBar} from '../Components/AllComponents';
 import "../Assets/CustomStyle.css";
 
 class PlayerList extends React.Component {

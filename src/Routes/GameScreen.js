@@ -1,10 +1,12 @@
 import React from "react";
 import {withRouter} from "react-router-dom";
-import {
-    Text,
-    View,
-    ResultRow, WhoseTurn, Keypad, ChatWindow, TopBar
-} from "../Assets/Components";
+// import {
+//     Text,
+//     View,
+//     ResultRow, WhoseTurn, Keypad, ChatWindow, TopBar
+// } from "../Assets/Components";
+
+import {Text,View,ResultRow,WhoseTurn,Keypad,ChatWindow,TopBar} from '../Components/AllComponents';
 import "../Assets/CustomStyle.css";
 
 class GameScreen extends React.Component {

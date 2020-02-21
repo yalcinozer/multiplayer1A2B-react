@@ -1,6 +1,10 @@
 import React from "react";
 import {withRouter} from "react-router-dom";
-import {Text,brown,yellow} from "../Assets/Components";
+// import {Text,brown,yellow} from "../Assets/Components";
+
+import {Text} from '../Components/AllComponents';
+import {yellow, brown} from '../Assets/HelperAndColors';
+
 import "../Assets/CustomStyle.css";
 
 const h1={

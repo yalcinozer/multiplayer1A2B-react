@@ -2,7 +2,7 @@ import React from 'react';
 import {Switch, Route, MemoryRouter} from "react-router-dom";
 import socket from "./Assets/MySocket";
 
-//Screens
+//Routes
 import HowToPlay from "./Routes/HowToPlay";
 import PlayerList from "./Routes/PlayerList";
 import Home from "./Routes/Home";
