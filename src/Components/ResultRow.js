@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { View } from './AllComponents';
-import { yellow, brown } from '../Assets/HelperAndColors';
+import { yellow, brown } from '../Misc/Colors';
 
 
 const ResultRow = (props) => {

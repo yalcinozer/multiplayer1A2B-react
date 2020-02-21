@@ -1,7 +1,7 @@
 import React from 'react';
-import '../Assets/CustomStyle.css';
+import '../Assets/Css/CustomStyle.css';
 
-import {View,TouchableOpacity,ChatMessage} from './AllComponents';
+import { View, TouchableOpacity, ChatMessage } from './AllComponents';
 
 class ChatWindow extends React.Component {
 
@@ -14,33 +14,32 @@ class ChatWindow extends React.Component {
 
     mesajGonder = () => {
         this.props.socket.emit('send-message', [this.props.socket.id, this.state.text]);
-        this.setState({text: ""})
+        this.setState({ text: "" })
     };
 
     _handleChange = (e) => {
-        this.setState({text: e.target.value});
+        this.setState({ text: e.target.value });
     };
 
     render() {
 
         const messagesComps = this.props.messages.map((value) => {
             return (
-                <ChatMessage from={value[0]} message={value[1]} socket={this.props.socket}/>
+                <ChatMessage from={value[0]} message={value[1]} socket={this.props.socket} />
             )
         });
 
         return (
             <View style={this.props.style}>
-                <div ref={(ref) => {
-                    this.scrollable = ref
-                }} style={{
-                    flex: 3,
-                    flexDirection: "column",
-                    backgroundColor: '#cad9f2',
-                    overflowY: "auto",
-                    maxHeight: 160
-                }}>
-                    <p style={{textAlign: 'center', margin: 4}}>Have a chat with your
+                <div ref={(ref) => { this.scrollable = ref }}
+                    style={{
+                        flex: 3,
+                        flexDirection: "column",
+                        backgroundColor: '#cad9f2',
+                        overflowY: "auto",
+                        maxHeight: 160
+                    }}>
+                    <p style={{ textAlign: 'center', margin: 4 }}>Have a chat with your
                         opponent</p>
                     {messagesComps}
                 </div>
@@ -52,17 +51,17 @@ class ChatWindow extends React.Component {
                     backgroundColor: '#abc2e7',
                     paddingHorizontal: 10
                 }}>
-                    <input style={{flex: 6, paddingBottom: 0, paddingTop: 0, textAlign: "left"}}
-                           className="TextInput"
-                           placeholder="Say something"
-                           type="text"
-                           value={this.state.text}
-                           onChange={this._handleChange}/>
+                    <input style={{ flex: 6, paddingBottom: 0, paddingTop: 0, textAlign: "left" }}
+                        className="TextInput"
+                        placeholder="Say something"
+                        type="text"
+                        value={this.state.text}
+                        onChange={this._handleChange} />
                     <TouchableOpacity
-                        style={{flex: 2}}
+                        style={{ flex: 2 }}
                         onPress={this.mesajGonder}
                     >
-                        <span style={{fontSize: "1rem"}}>Send</span>
+                        <span style={{ fontSize: "1rem" }}>Send</span>
                     </TouchableOpacity>
                 </View>
                 {this.scrollable ? this.scrollable.scrollBy(0, 80) : null}

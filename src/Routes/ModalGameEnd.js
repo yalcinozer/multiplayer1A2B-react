@@ -7,7 +7,7 @@ import {
     TouchableOpacity,
     ResultRow,
 } from '../Components/AllComponents';
-import "../Assets/CustomStyle.css";
+import "../Assets/Css/CustomStyle.css";
 
 class ModalGameEnd extends React.Component {
 

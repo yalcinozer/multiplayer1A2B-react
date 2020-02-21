@@ -1,11 +1,10 @@
 import React from "react";
 import {withRouter} from "react-router-dom";
-// import {Text,brown,yellow} from "../Assets/Components";
 
 import {Text} from '../Components/AllComponents';
-import {yellow, brown} from '../Assets/HelperAndColors';
+import {yellow, brown} from '../Misc/Colors';
 
-import "../Assets/CustomStyle.css";
+import "../Assets/Css/CustomStyle.css";
 
 const h1={
     fontSize: 24,

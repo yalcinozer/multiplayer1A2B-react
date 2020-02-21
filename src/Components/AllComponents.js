@@ -10,7 +10,7 @@ import View from './View';
 import WhoseTurn from './WhoseTurn';
 
 export {
-    View,
+    ChatWindow,
     ChatMessage,
     Keypad,
     PlayerListRow,
@@ -18,6 +18,6 @@ export {
     Text,
     TopBar,
     TouchableOpacity,
-    ChatWindow,
-    WhoseTurn
+    WhoseTurn,
+    View
 }

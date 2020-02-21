@@ -1,5 +1,5 @@
 import React from 'react';
-import {brown, yellow} from '../Assets/HelperAndColors';
+import {brown, yellow} from '../Misc/Colors';
 
 
 const PlayerListRow = (props) => {

@@ -1,27 +1,24 @@
 import React from 'react';
-import {View,Text} from './AllComponents';
-import {yellow, brown} from '../Assets/HelperAndColors';
-import '../Assets/CustomStyle.css';
+import { View, Text } from './AllComponents';
+import { yellow, brown } from '../Misc/Colors';
+import '../Assets/Css/CustomStyle.css';
 
 
 const WhoseTurn = (props) => {
 
-    let youStyle, opponentStyle;
-    if (props.yourTurn) {
-        youStyle = {
+    let youStyle,
+        opponentStyle,
+        styleInFront = {
             transform: "scale(1)",
             left: "36%",
             zIndex: 1,
             opacity: 1
         }
+    if (props.yourTurn) {
+        youStyle = styleInFront;
         opponentStyle = {}
     } else {
-        opponentStyle = {
-            transform: "scale(1)",
-            left: "36%",
-            zIndex: 1,
-            opacity: 1
-        };
+        opponentStyle = styleInFront;
         youStyle = {}
     }
 

@@ -1,18 +1,9 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-// import {
-//     Text,
-//     brown,
-//     yellow,
-//     View,
-//     GiantLetter,
-//     TouchableOpacity,
-//     TopBar
-// } from "../Assets/Components";
 
 import { Text, View, TouchableOpacity} from '../Components/AllComponents';
-import { brown, yellow } from '../Assets/HelperAndColors';
-import "../Assets/CustomStyle.css";
+import { brown, yellow } from '../Misc/Colors';
+import "../Assets/Css/CustomStyle.css";
 
 class Home extends React.Component {
 
@@ -26,6 +17,7 @@ class Home extends React.Component {
     }
 
     componentDidMount() {
+        
         this.socket.off('name-approved');
         this.socket.on('name-approved', () => {
             this.props.history.push("/playerlist");
@@ -81,7 +73,7 @@ class Home extends React.Component {
                         maxLength="10"
                         onChange={this.handleChange} />
                     <TouchableOpacity style={{ margin: 5 }} onPress={this.doneButtonFunction}>
-                        <span style={{ fontSize: "1rem" }} >Done</span>
+                        <span style={{ fontSize: "1rem" }}>Done</span>
                     </TouchableOpacity>
                 </View>
             </View>

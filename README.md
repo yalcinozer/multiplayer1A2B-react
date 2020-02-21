@@ -1,68 +1,37 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 1A2B Multiplayer-React Web App
 
-## Available Scripts
+This app is ported from the original "1A2B Multiplayer" game, taht its target platform is Android.
 
-In the project directory, you can run:
+"1A2B Multiplayer" is a simple number guessing game known and played in many different countries.
 
-### `yarn start`
+### Rules Of the game
+It can be seen in "How To Play" screen of the app.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `yarn test`
+# Setup
+(in respective root paths)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Server:
+- run "npm install"
+- run "npm start"
 
-### `yarn build`
+#### Web Application:
+- Get Wifi IPv4 address of development device. (run ipconfig for Windows)
+- Assign that address to variable "localURL", which is in /src/Assets/MySocket.js
+- Run npm install
+- Run npm start
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### If the configuration is correct:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+When you click on "Done" button in the App, server should print a "xxxxxxxxx connected" and Web App should navigate to Players Screen.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+Warning:
+You can test the application by opening two browsers. When you invite other browser to game, passive browser will not be able to display Alert(). This means game invitations will not be displayed.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+To get over this issue, you shoud keep Developer Tools open.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Dipnot:
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+React Native kodlarımı doğrudan kopyala yapıştır yapıp taşıyabilmek için, RN benzeri componentler oluşturup onları kullanmayı düşünmüştüm ama sonradan tam olarak hatırlamıyorum bu fikrimden vazgeçtim. RN'yi hatırlatan komponentler onun izi.

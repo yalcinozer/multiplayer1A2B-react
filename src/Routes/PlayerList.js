@@ -2,7 +2,7 @@ import React from "react";
 import {withRouter} from "react-router-dom";
 
 import {Text, PlayerListRow, View, TopBar} from '../Components/AllComponents';
-import "../Assets/CustomStyle.css";
+import "../Assets/Css/CustomStyle.css";
 
 class PlayerList extends React.Component {
 
@@ -22,6 +22,8 @@ class PlayerList extends React.Component {
         this.socket.off('invitation-accepted');
         this.socket.off('choose-your-number');
         this.socket.off('send-list');
+
+        //Get playerlist from server on screen loaded
         this.socket.emit('request-list');
 
         this.socket.on('send-list', (data) => {
@@ -49,7 +51,8 @@ class PlayerList extends React.Component {
     createList = (veri) => {
         const rowsList = [];
         Object.keys(this.state.playerList).forEach((key) => {
-            rowsList.push(<PlayerListRow id={key} onPress={() => {
+            rowsList.push(<PlayerListRow key={key} id={key} onPress={() => {
+                //Prevent calling players if its you or its in-game 
                 if (this.socket.id === key) return;
                 if (veri[key]['inGame']) return;
                 this.socket.emit('send-invitation', key);

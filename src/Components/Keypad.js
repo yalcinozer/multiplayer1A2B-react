@@ -1,7 +1,7 @@
 import React from 'react';
-import {View,TouchableOpacity} from './AllComponents';
-import {compareNumbers} from '../Assets/HelperAndColors';
-import '../Assets/CustomStyle.css';
+import { View, TouchableOpacity } from './AllComponents';
+
+import '../Assets/Css/CustomStyle.css';
 
 class Keypad extends React.Component {
 
@@ -12,19 +12,19 @@ class Keypad extends React.Component {
     };
 
     componentDidMount() {
-        this.setState({number: []});
+        this.setState({ number: [] });
     }
 
     gamescreen = () => {
-        this.setState({number: []});
-        const {a, b} = compareNumbers(this.state.number, this.props.socket.opponentNumber);
+        this.setState({ number: [] });
+        const { a, b } = compareNumbers(this.state.number, this.props.socket.opponentNumber);
         this.props.gamescreenF([this.state.number, a, b]);
     };
 
     enteryournumber = () => {
         this.props.enteryournumberF(this.state.number)
     };
-
+    
     // training = () => {
     //     this.setState({number: []});
     //     const {a, b} = compareNumbers(this.state.number, this.randomGeneratedNumber);
@@ -50,12 +50,14 @@ class Keypad extends React.Component {
     render() {
         const keypad = [1, 2, 3, 4, 5, 6, 7, 8, 9],
             comps = [],
-            {number} = this.state,
-            isTickDisabled = this.props.isTickDisabled ? {opacity: .3, pointerEvents: "none"} : {
+            { number } = this.state,
+            //For Gameplay Screen. Disable button until opponent make another guess 
+            isTickDisabled = this.props.isTickDisabled ? { opacity: .3, pointerEvents: "none" } : {
                 opacity: 1,
                 pointerEvents: "auto"
             },
-            isAllDisabled = this.props.isAllDisabled ? {opacity: .4, pointerEvents: "none"} : {
+            //On enter your number screen, disable keys after selecting yourself a number.
+            isAllDisabled = this.props.isAllDisabled ? { opacity: .4, pointerEvents: "none" } : {
                 opacity: 1,
                 pointerEvents: "auto"
             };
@@ -63,13 +65,14 @@ class Keypad extends React.Component {
         keypad.map((value) => {
             comps.push(
                 <TouchableOpacity
+                    key={value}
                     onPress={() => {
                         const temp = number;
                         if (number.indexOf(value) !== -1 || number.length === 4) {
                             return;
                         }
                         temp.push(value);
-                        this.setState({number: temp})
+                        this.setState({ number: temp })
                     }}
                     className="Numkey">
                     <span className="NumkeyText">{value}</span>
@@ -78,20 +81,22 @@ class Keypad extends React.Component {
 
         comps.push(
             <TouchableOpacity
+                key="delete"
                 onPress={() => {
                     const temp = number;
                     temp.pop();
-                    this.setState({number: temp})
+                    this.setState({ number: temp })
                 }}
                 className="Numkey"
             >
                 <img src={require('../Assets/Images/backspace.png')} alt="backspace"
-                     style={{width: ".85rem", height: ".85rem"}}/>
+                    style={{ width: ".85rem", height: ".85rem" }} />
             </TouchableOpacity>
         );
 
         comps.push(
             <TouchableOpacity
+                key="0"
                 onPress={() => {
                     let temp = number;
                     if (number.length === 0) {
@@ -101,7 +106,7 @@ class Keypad extends React.Component {
                         return;
                     }
                     temp.push(0);
-                    this.setState({number: temp})
+                    this.setState({ number: temp })
                 }}
                 className="Numkey">
                 <span className="NumkeyText">0</span>
@@ -109,16 +114,17 @@ class Keypad extends React.Component {
         );
 
         comps.push(<TouchableOpacity
+            key="tick"
             onPress={this.tickButton}
             className="Numkey"
             style={isTickDisabled}>
             <img src={require('../Assets/Images/checked.png')} alt="checked"
-                 style={{width: ".85rem", height: ".85rem"}}/>
+                style={{ width: ".85rem", height: ".85rem" }} />
         </TouchableOpacity>);
 
         return (
             <View className="Keypad" style={isAllDisabled}>
-                <View style={{flex: 1}}>
+                <View style={{ flex: 1 }}>
                     <View style={{
                         alignItems: 'center',
                         borderWidth: 2,
@@ -127,15 +133,15 @@ class Keypad extends React.Component {
                         margin: "10px auto"
                     }}>
                         <span className="FourDigit">{this.state.number[0]}</span>
-                        <span className="Filler"/>
+                        <span className="Filler" />
                         <span className="FourDigit">{this.state.number[1]}</span>
-                        <span className="Filler"/>
+                        <span className="Filler" />
                         <span className="FourDigit">{this.state.number[2]}</span>
-                        <span className="Filler"/>
+                        <span className="Filler" />
                         <span className="FourDigit">{this.state.number[3]}</span>
                     </View>
                 </View>
-                <View style={{flex: 5, flexWrap: "wrap", justifyContent: "center"}}>
+                <View style={{ flex: 5, flexWrap: "wrap", justifyContent: "center" }}>
                     {comps}
                 </View>
             </View>
@@ -144,3 +150,22 @@ class Keypad extends React.Component {
 }
 
 export default Keypad;
+
+
+function compareNumbers(guess, secretNumber) {
+    var rightPos = 0, wrongPos = 0;
+    var i = 0;
+    for (i; i < 4; i++) {
+        if (secretNumber.indexOf(guess[i]) >= 0) {
+            if (secretNumber[i] === guess[i]) {
+                rightPos++;
+            } else {
+                wrongPos++
+            }
+        }
+    }
+    return {
+        a: rightPos,
+        b: wrongPos
+    }
+}

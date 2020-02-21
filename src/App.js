@@ -1,6 +1,6 @@
 import React from 'react';
 import {Switch, Route, MemoryRouter} from "react-router-dom";
-import socket from "./Assets/MySocket";
+import socket from "./Misc/MySocket";
 
 //Routes
 import HowToPlay from "./Routes/HowToPlay";

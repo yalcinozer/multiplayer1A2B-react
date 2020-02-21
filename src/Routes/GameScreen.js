@@ -1,13 +1,8 @@
 import React from "react";
 import {withRouter} from "react-router-dom";
-// import {
-//     Text,
-//     View,
-//     ResultRow, WhoseTurn, Keypad, ChatWindow, TopBar
-// } from "../Assets/Components";
 
 import {Text,View,ResultRow,WhoseTurn,Keypad,ChatWindow,TopBar} from '../Components/AllComponents';
-import "../Assets/CustomStyle.css";
+import "../Assets/Css/CustomStyle.css";
 
 class GameScreen extends React.Component {
 
@@ -56,6 +51,7 @@ class GameScreen extends React.Component {
     callback = (dataFromKeypad) => {
         const {results} = this.state;
         results.push(dataFromKeypad);
+        // If all numbers all are on right position, this means, Player found out the number
         if (dataFromKeypad[1] === 4) {
             this.socket.emit('i-won');
             this.props.history.push({

@@ -6,7 +6,7 @@ import {
     Keypad,
     TopBar
 } from '../Components/AllComponents';
-import "../Assets/CustomStyle.css";
+import "../Assets/Css/CustomStyle.css";
 
 class EnterYourNumber extends React.Component {
 
@@ -17,14 +17,10 @@ class EnterYourNumber extends React.Component {
 
     state = {
         isAllDisabled: false,
-        routeNext: false
     };
 
     componentDidMount() {
-        this.setState({
-            pointerDisabled: false,
-            routeNext: false
-        })
+        
         this.socket.off('game-has-started');
         this.socket.off('opponent-choosed-a-number');
         this.socket.off('opponent-left-game');

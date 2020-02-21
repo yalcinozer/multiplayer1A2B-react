@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from './AllComponents';
-import { yellow, brown } from '../Assets/HelperAndColors';
+import { yellow, brown } from '../Misc/Colors';
 
 const ChatMessage = (props) => {
 
@@ -12,11 +12,11 @@ const ChatMessage = (props) => {
     //Background-color also changes
     const style2 = props.from === props.socket.id ? {
         backgroundColor: yellow,
-    } : { backgroundColor: brown, color: "white" };
+    } : { backgroundColor: brown, color: "#fff" };
 
     return (
         <View style={style1}>
-            <span className="ChatMessage" style={style2}>{this.props.message}</span>
+            <span className="ChatMessage" style={style2}>{props.message}</span>
         </View>
     )
 }

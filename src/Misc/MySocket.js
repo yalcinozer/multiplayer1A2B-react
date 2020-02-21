@@ -1,8 +1,7 @@
 import SocketIOClient from 'socket.io-client';
 
-//Custom styles
 const localURL = "http://192.168.1.41:8080",
-    remoteURL = "https://numbergame1a2b.herokuapp.com";
+      remoteURL = null;
 const urlWillBeUsed = localURL || remoteURL;
 // //Socket.io connection
 const socket = SocketIOClient(urlWillBeUsed, {autoConnect: false, reconnection: false});
