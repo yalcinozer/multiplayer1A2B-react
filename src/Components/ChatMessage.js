@@ -1,23 +1,32 @@
 import React from 'react';
-import { View } from './AllComponents';
-import { yellow, brown } from '../Misc/Colors';
+import {MySocket} from "../Misc/MySocket";
+import {yellow, brown} from '../Misc/Colors';
 
-const ChatMessage = (props) => {
+/**
+ * Single message component
+ * @param from
+ * @param message
+ * @returns {*}
+ * @constructor
+ */
+const ChatMessage = ({from, message}) => {
 
-    //Position of element changes depending who sent it
-    const style1 = props.from === props.socket.id ? {
-        justifyContent: 'flex-end',
-    } : { justifyContent: 'flex-start' };
+    //Position of element changes depending on who sent it
+    const style1 =
+              from === MySocket.id ?
+                  {justifyContent: 'flex-end'} :
+                  {justifyContent: 'flex-start'};
 
     //Background-color also changes
-    const style2 = props.from === props.socket.id ? {
-        backgroundColor: yellow,
-    } : { backgroundColor: brown, color: "#fff" };
+    const style2 =
+              from === MySocket.id ?
+                  {backgroundColor: yellow} :
+                  {backgroundColor: brown, color: "#fff"};
 
     return (
-        <View style={style1}>
-            <span className="ChatMessage" style={style2}>{props.message}</span>
-        </View>
+        <div style={style1}>
+            <span className="ChatMessage" style={style2}>{message}</span>
+        </div>
     )
 }
 export default ChatMessage;

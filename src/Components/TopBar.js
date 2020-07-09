@@ -1,16 +1,19 @@
 import React from 'react';
-import {useHistory} from "react-router-dom";
+import {useHistory, useLocation} from "react-router-dom";
+import {MySocket} from "../Misc/MySocket";
 
 const TopBar = (props) => {
 
+    const location = useLocation();
     const history = useHistory();
+    console.log(location.pathname);
     const sureToExit = () => {
-        if (props.socket.hasOwnProperty("opponentID") && props.socket.opponentID !== null) {
+        if (MySocket.hasOwnProperty("opponentID") && MySocket.opponentID !== null) {
             if (window.confirm("Are you sure you want to leave game exit?")) {
-                props.socket.opponentID = null;
+                MySocket.opponentID = null;
                 history.entries.length = 0;
                 history.push("/");
-                props.socket.emit('leave-game');
+                MySocket.emit('leave-game');
             }
         } else {
             history.goBack();
@@ -18,8 +21,11 @@ const TopBar = (props) => {
     }
 
     return (
-        <div style={{flex: 0, minHeight: 32, alignItems: "center"}}>
+        <div style={{justifyContent: "space-between", minHeight: 32, alignItems: "center"}}>
             <span onClick={sureToExit}>Back</span>
+            {location.pathname === "/gamescreen" &&
+            <span style={{color: "gray"}}>{MySocket.ownNumber}</span>
+            }
         </div>
     )
 }

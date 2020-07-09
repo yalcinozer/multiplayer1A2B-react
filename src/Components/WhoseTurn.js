@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text } from './AllComponents';
-import { yellow, brown } from '../Misc/Colors';
+import {yellow, brown} from '../Misc/Colors';
 import '../Assets/Css/CustomStyle.css';
+import {MySocket} from "../Misc/MySocket";
 
 
 const WhoseTurn = (props) => {
@@ -10,9 +10,9 @@ const WhoseTurn = (props) => {
         opponentStyle,
         styleInFront = {
             transform: "scale(1)",
-            left: "36%",
-            zIndex: 1,
-            opacity: 1
+            left     : "36%",
+            zIndex   : 1,
+            opacity  : 1
         }
     if (props.yourTurn) {
         youStyle = styleInFront;
@@ -24,20 +24,19 @@ const WhoseTurn = (props) => {
 
     return (
         <>
-            <View className="WhoseTurn" style={
-                Object.assign({}, {
-                    backgroundColor: brown,
-                    color: 'white',
-                }, opponentStyle)
-            }>
-                <Text>{props.socket.opponentName}'s turn</Text>
-            </View>
-            <View className="WhoseTurn" style={
+            <div className="WhoseTurn" style={{
+                backgroundColor: brown,
+                color          : 'white',
+                ...opponentStyle,
+            }}>
+                <span>{MySocket.opponentName}'s turn</span>
+            </div>
+            <div className="WhoseTurn" style={
                 Object.assign({}, {
                     backgroundColor: yellow,
                 }, youStyle)}>
-                <Text>Your turn</Text>
-            </View>
+                <span>Your turn</span>
+            </div>
         </>
     )
 };

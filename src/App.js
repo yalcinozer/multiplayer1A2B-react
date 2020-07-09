@@ -1,11 +1,10 @@
 import React from 'react';
 import {Switch, Route, MemoryRouter} from "react-router-dom";
-import socket from "./Misc/MySocket";
 
 //Routes
 import HowToPlay from "./Routes/HowToPlay";
-import PlayerList from "./Routes/PlayerList";
 import Home from "./Routes/Home";
+import PlayerList from "./Routes/PlayerList";
 import EnterYourNumber from "./Routes/EnterYourNumber";
 import GameScreen from "./Routes/GameScreen";
 import ModalGameEnd from "./Routes/ModalGameEnd";
@@ -15,22 +14,22 @@ export default function App() {
         <MemoryRouter>
             <Switch>
                 <Route path="/playerlist">
-                    <PlayerList socket={socket}/>
+                    <PlayerList/>
                 </Route>
                 <Route path="/enteryournumber">
-                    <EnterYourNumber socket={socket}/>
+                    <EnterYourNumber/>
                 </Route>
                 <Route path="/gamescreen">
-                    <GameScreen socket={socket}/>
+                    <GameScreen/>
                 </Route>
                 <Route path="/modalgameend">
-                    <ModalGameEnd socket={socket}/>
+                    <ModalGameEnd/>
                 </Route>
                 <Route path="/howtoplay">
                     <HowToPlay/>
                 </Route>
                 <Route exact={true} path="/">
-                    <Home socket={socket}/>
+                    <Home/>
                 </Route>
             </Switch>
         </MemoryRouter>

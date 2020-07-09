@@ -1,34 +1,34 @@
 import React from 'react';
+import {yellow, brown} from '../Misc/Colors';
 
-import { View } from './AllComponents';
-import { yellow, brown } from '../Misc/Colors';
-
-
-const ResultRow = (props) => {
+/**
+ * Row generated after every guess.
+ * @param a
+ * @param b
+ * @param number
+ * @returns {*}
+ * @constructor
+ */
+const ResultRow = ({a, b, number}) => {
     return (
-        <View style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            paddingVertical: 4,
+        <div style={{
+            flexDirection    : 'row',
+            alignItems       : 'center',
+            paddingVertical  : 4,
             borderBottomWidth: 1,
             borderBottomColor: '#dfdfdf',
-            justifyContent: 'center'
+            justifyContent   : 'center'
         }}>
-            <span style={{
-                fontSize: 18,
-                marginHorizontal: 12,
-                minWidth: 50,
-            }}>{props.number}</span>
-            <span style={{
-                fontSize: 18,
-                color: yellow,
-                marginRight: 8
-            }}>{props.a}A</span>
-            <span style={{
-                fontSize: 18,
-                color: brown
-            }}>{props.b}B</span>
-        </View>
+            <span style={{fontSize: 18, marginHorizontal: 12, minWidth: 50,}}>
+                {number}
+            </span>
+            <span style={{fontSize: 18, color: yellow, marginRight: 8}}>
+                {a}A
+            </span>
+            <span style={{fontSize: 18, color: brown}}>
+                {b}B
+            </span>
+        </div>
     )
 }
 
